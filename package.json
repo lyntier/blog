@@ -11,13 +11,16 @@
   },
   "dependencies": {
     "@antfu/eslint-config": "^2.6.4",
+    "@unocss/reset": "^0.58.5",
     "eslint": "^8.56.0",
     "nuxt": "^3.10.1",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
+    "@unocss/nuxt": "^0.58.5",
     "eslint-plugin-format": "^0.1.0",
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "unocss-preset-catppuccin": "^0.1.0"
   }
 }
