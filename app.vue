@@ -7,9 +7,7 @@ useHead({
 </script>
 
 <template>
-  <div>
-    <p>
-      Hello world!
-    </p>
+  <div id="app">
+    <NuxtPage />
   </div>
 </template>
