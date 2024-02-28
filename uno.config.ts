@@ -4,11 +4,13 @@ import presetCatppuccin from 'unocss-preset-catppuccin'
 export default defineConfig ({
   presets: [
     presetUno(),
-    presetIcons(),
+    presetIcons({
+      cdn: 'https://esm.sh/',
+    }),
     presetWebFonts(),
     presetTypography(),
     presetCatppuccin({
-      defaultFlavour: 'mocha',
+      defaultFlavour: 'latte',
       prefix: false,
     }),
   ],

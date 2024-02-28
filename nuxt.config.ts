@@ -1,11 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@unocss/nuxt', '@nuxt/content'],
-  css: ['@unocss/reset/tailwind.css'],
+  modules: ['@unocss/nuxt', '@nuxt/content', '@nuxt/image', 'nuxt-particles'],
+  css: ['@unocss/reset/tailwind.css', '/assets/css/scrollbar.css', '/assets/css/scroll-shadow.css'],
   content: {
-    documentDriven: {
-      layoutFallbacks: ['blog'],
+    documentDriven: true,
+    highlight: {
+      theme: 'catppuccin-macchiato',
     },
   },
+  components: [{
+    path: '~/components',
+    pathPrefix: false,
+    prefix: 'Auv',
+  }],
 })

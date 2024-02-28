@@ -1,7 +1,11 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
   <div class="h-full">
     <NuxtLayout>
-      <p>Page test</p>
+      <AuvContentList />
     </NuxtLayout>
   </div>
 </template>
