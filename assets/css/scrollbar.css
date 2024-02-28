@@ -1,0 +1,8 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Add a thumb */
+::-webkit-scrollbar-thumb {
+  display: none;
+}
