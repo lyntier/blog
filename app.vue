@@ -74,9 +74,9 @@ const options: RecursivePartial<IOptions> = {
   },
 }
 
-function onLoad(container: Container) {
-  container.pause()
-  setTimeout(() => container.play(), 2000)
+function hideBackgroundColor() {
+  const appDiv = document.querySelector('#app')
+  appDiv!.className = `${appDiv!.className} anim`
 }
 </script>
 
@@ -86,7 +86,7 @@ function onLoad(container: Container) {
     <NuxtParticles
       id="particles"
       :options="options"
-      @load="onLoad"
+      @load="hideBackgroundColor"
     />
   </div>
 </template>
@@ -96,5 +96,13 @@ function onLoad(container: Container) {
  * cba to put in a global css file */
 html, body, #__nuxt, #app {
   height: 100%;
+}
+
+#app {
+  background-color: white;
+  transition: background-color 3s;
+}
+#app.anim {
+  background-color: transparent;
 }
 </style>
