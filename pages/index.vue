@@ -1,7 +1,9 @@
 <template>
   <div class="h-full">
     <NuxtLayout>
-      <p>Page test</p>
+      <div class="overflow-visible">
+        <AuvAvatar />
+      </div>
     </NuxtLayout>
   </div>
 </template>
