@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   icon?: string
   text?: string
 }>()
@@ -7,7 +7,7 @@ const props = defineProps<{
 
 <template>
   <div class="w-fit flex flex-row items-center rounded bg-text p-2 px-3 text-base opacity-80">
-    <UnoIcon v-if="props.icon" class="mr-2" :class="props.icon" />
-    <span v-if="props.text">{{ props.text }}</span>
+    <UnoIcon v-if="icon" class="mr-2" :class="icon" />
+    <span v-if="text">{{ text }}</span>
   </div>
 </template>

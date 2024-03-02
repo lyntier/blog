@@ -3,8 +3,10 @@
 </script>
 
 <template>
-  <header class="min-h-15">
-    <p>Hello world</p>
+  <header class="flex-row">
+    <p>
+      Hello world
+    </p>
   </header>
 </template>
 
