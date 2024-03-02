@@ -1,19 +1,13 @@
 <script setup lang="ts">
-import type { ParsedContent } from '@nuxt/content/types'
+import type { BlogItem } from '~/types/blog-item'
 
-function sortedList(list: ParsedContent[] | null) {
-  if (!list)
-    return []
-  return [...list].sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
-}
-
-const { data } = await useAsyncData('posts', () => queryContent('blog').find())
+const list = useFetch<BlogItem[]>('/api/_content/query').data
 </script>
 
 <template>
-  <div class="h-full">
+  <div class="h-full duration-3000">
     <div>
-      <div v-for="item in sortedList(data)" :key="item._path" class="flex flex-row">
+      <div v-for="item in list" :key="item._path" class="flex flex-row duration-300">
         <NuxtLink :to="item._path" class="m-5 block flex-grow">
           <div class="inline-block min-w-full rounded-4 p-5 px-10 text-base prose">
             <h1>
@@ -25,6 +19,7 @@ const { data } = await useAsyncData('posts', () => queryContent('blog').find())
           </div>
         </NuxtLink>
       </div>
+      {{ list }}
     </div>
   </div>
 </template>
