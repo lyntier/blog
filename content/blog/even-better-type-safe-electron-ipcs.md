@@ -10,9 +10,7 @@ Woo! Type-safety has been achieved! And I managed to also completely generalize 
 
 The last time I looked at this, I closed the ordeal by saying "You cannot use any functions with names that aren't in this type, hooray" and basically left it at that. Thing is, Typescript's type system is SO much more flexible than that, and there's so much more to discover. So what changed since last time?
 
-## Type mapping
-
-I look a look at type mapping. Let's say I write a function signature:
+I took a look at type mapping. Let's say I write a function signature:
 
 ```ts
 type doThing = (foo: Foo, bar: Bar) => Baz
@@ -38,7 +36,7 @@ type HasPropsWithTypeNumber = {
 }
 ```
 
-What this code does is take all keys from `HasPropsWithTypeString` and say that an object with this new type will return numbers when these keys are addressed. Typescript now treats objects with this type as having a prop `foo` that's a number. Even better when constructing an object of this type, having a `foo` number prop becomes a **requirement**. If you do not include it, Typescript will let you know: `Property 'foo' is missing in type '{}' but required in type 'givesN'.`
+What this code does is take all keys from `HasPropsWithTypeString` and say that an object with this new type will return numbers when these keys are addressed. Typescript now treats objects with this type as having a prop `foo` that's a number. Even better; when constructing an object of this type, having a `foo` number prop becomes a **requirement**. If you do not include it, Typescript will let you know: `Property 'foo' is missing in type '{}' but required in type 'givesN'.`
 
 So what if we apply that to our own API?
 

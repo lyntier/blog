@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@unocss/nuxt', '@nuxt/content', '@nuxt/image', 'nuxt-particles'],
+  modules: ['@unocss/nuxt', '@nuxt/content', '@nuxt/image', 'nuxt-particles', '@nuxtjs/color-mode'],
   css: ['@unocss/reset/tailwind.css', '/assets/css/scrollbar.css', '/assets/css/scroll-shadow.css'],
   content: {
     documentDriven: true,
@@ -13,5 +13,11 @@ export default defineNuxtConfig({
     path: '~/components',
     pathPrefix: false,
     prefix: 'Auv',
+
   }],
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'dark',
+  },
 })

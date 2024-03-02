@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <div class="h-full">
-    <AuvContentList />
-  </div>
+  <Auv404 href="/" />
 </template>
+
+<style scoped>
+
+</style>
