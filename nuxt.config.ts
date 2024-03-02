@@ -20,4 +20,7 @@ export default defineNuxtConfig({
     preference: 'system',
     fallback: 'dark',
   },
+  nitro: {
+    preset: 'vercel',
+  },
 })
