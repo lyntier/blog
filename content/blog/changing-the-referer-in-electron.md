@@ -22,7 +22,7 @@ Still forbidden, because the header is still actually set to `https://localhost:
 
 I could list all the things I tried, such as setting the `window` history but really Chrome just doesn't _allow_ you to set the referrer. You can use an extension, but that's not really feasible in Electron. So, what _is_ feasible?
 
-The problem you're running into is that Electron's browser is not allowing you to change the referrer, but what if you didn't make your network call from the browser? Simply let Electron's main thread handle the network call. If you'd like to read more about IPCs, I've made two posts before about it [here](https://kamadoori.github.io/2023/11/18/type-safe-electron-ipcs/) and [here](/2023/11/24/even-better-type-safe-electron-ipcs/).
+The problem you're running into is that Electron's browser is not allowing you to change the referrer, but what if you didn't make your network call from the browser? Simply let Electron's main thread handle the network call. If you'd like to read more about IPCs, I've made two posts before about it [here](/blog/type-safe-electron-ipcs/) and [here](/blog/even-better-type-safe-electron-ipcs/).
 
 I add a new channel:
 
@@ -47,7 +47,8 @@ export const api: ElectronMainAPI = {
     const url = args[0]
     const referer = args[1]
 
-    // `net` is an Electron module for performing network actions in the NodeJS landscape
+    // `net` is an Electron module for performing
+    // network actions in the NodeJS landscape
     const response = await net.fetch(url, {
       headers: [['Referer', referer]],
     })
@@ -66,7 +67,10 @@ And call it:
 
 ```vue
 <script setup>
-const data = await window.ElectronAPI.fetchWithReferer('https://data-site.fake/resource.png', 'https://partner-site.fake/')
+const data = await window.ElectronAPI.fetchWithReferer(
+  'https://data-site.fake/resource.png',
+  'https://partner-site.fake/'
+)
 // 200 !
 <script>
 ```

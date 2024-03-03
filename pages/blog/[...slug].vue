@@ -19,9 +19,13 @@
               {{ doc.title }}
             </h1>
           </header>
-          <ContentRenderer :value="doc" class="[&>p>code]:rounded [&_pre]:bg-[#242428] [&>p>code]:p-1 [&>p>code]:opacity-90 [&_pre]:shadow-md xl:[&_pre]:mx--10 dark:[&>p>code]:bg-dark light:[&>p>code]:bg-purple-200" />
-          <a href="#top" class="ext-4xl mx-auto h-9 w-9 flex flex-col content-center items-center">
-            <UnoIcon class="i-heroicons:chevron-up" />
+          <ContentRenderer :value="doc" class="[&>p>code]:rounded [&_pre]:bg-[#242428] [&>p>code]:p-1 [&>p>code]:opacity-90 [&_pre]:shadow-md md:[&_pre]:mx--10 dark:[&>p>code]:bg-dark light:[&>p>code]:bg-purple-200" />
+
+          <a href="#top" class="mx-auto h-10 w-10 flex flex-col translate-y-8 content-center items-center text-4xl">
+            <div class="rounded-full p-1 shadow-lg duration-200 hover:scale-110 dark:bg-frappe-base light:bg-pink-50">
+
+              <UnoIcon class="i-heroicons:chevron-up" />
+            </div>
           </a>
         </article>
       </template>

@@ -5,7 +5,7 @@ const list = useFetch<BlogItem[]>('/api/_content/query').data
 </script>
 
 <template>
-  <div class="h-full duration-3000">
+  <div class="h-full">
     <div>
       <div v-for="item in list" :key="item._path" class="flex flex-row duration-300">
         <NuxtLink :to="item._path" class="m-5 block flex-grow">
