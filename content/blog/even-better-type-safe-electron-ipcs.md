@@ -72,7 +72,8 @@ This is a bit more of an advanced mapping, so let's go over it.
 So how do we use this now? We can simply pass in functions to the type parameter:
 
 ```ts
-// Note: Can't access these properties with dot notation. However, there is type safety on the linter for bracket notation.
+// Note: Can't access these properties with dot notation.
+// However, there is type safety on the linter for bracket notation.
 type doThingMapped = RemoveEvent<ElectronAPI['doThing']>
 type doAnotherThingMapped = RemoveEvent<ElectronAPI['doAnotherThing']>
 ```
@@ -127,7 +128,8 @@ Object.keys(api).forEach((key) => {
 Then in my `preload.ts`, to expose the methods in the renderer thread:
 
 ```ts
-// This is simply an object we load up with `invoke` calls for all the ipc channels by reading the original `api` object and applying the functions from that to this.
+// This is simply an object we load up with `invoke` calls for all the ipc channels
+// by reading the original `api` object and applying the functions from that to this.
 const exposed = {} as ElectronRendererAPI
 
 Object.keys(api).forEach((key) => {

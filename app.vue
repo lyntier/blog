@@ -5,17 +5,23 @@ function hideBackgroundColor() {
   const appDiv = document.querySelector('#app')
   appDiv!.className = `${appDiv!.className} anim`
 }
+
+const route = useRoute()
+
+function isMainPage(): boolean {
+  return route.fullPath === '/'
+}
 </script>
 
 <template>
-  <div id="app" class="font-500 font-sans">
-    <div class="light:text-latte-text dark:text-frappe-text h-full flex flex-col">
-      <header class="fixed my-5 w-full flex flex-row justify-center xl:hidden">
+  <div id="app" class="font-500 font-sans duration-300">
+    <div class="h-full flex flex-col dark:text-frappe-text light:text-latte-text">
+      <header class="absolute my-5 w-full flex flex-row justify-center xl:hidden">
         <AuvHeaderDisplayText shadow class="text-4xl" />
       </header>
-      <AuvSidebar class="light:bg-frappe-base light:text-frappe-text dark:bg-latte-base dark:text-latte-text fixed bottom-10 top-5 m-5 max-w-60 translate-x--85 rounded shadow-md duration-300 xl:translate-x-0" />
-      <div class="mx-auto mb-15 mt-10 flex-grow duration-300 lg:mx-auto xl:mt-10 lg:w-auto">
-        <AuvMain class="dark:bg-frappe-base light:bg-latte-base dark:text-frappe-text light:text-latte-text mb-15 w-screen overflow-x-visible rounded p-5 shadow-md duration-100 lg:w-2xl" />
+      <AuvSidebar v-if="!isMainPage()" class="fixed bottom-10 top-5 m-5 max-w-60 translate-x--85 rounded shadow-md duration-300 xl:translate-x-0 dark:bg-latte-base light:bg-frappe-base dark:text-latte-text light:text-frappe-text" />
+      <div class="mx-auto mb-15 mt-10 flex-grow lg:mx-auto xl:mt-10 lg:w-auto">
+        <AuvMain class="mb-15 w-screen overflow-x-visible rounded p-5 shadow-md md:w-2xl dark:bg-frappe-base light:bg-pink-50 dark:text-frappe-text light:text-latte-text" />
       </div>
     </div>
     <NuxtParticles
@@ -48,6 +54,7 @@ html.dark {
 #app {
   background-image: linear-gradient(to bottom right, #a1c4fd, #c2e9fb );
   transition: background-image 3s;
+  background-attachment: fixed;
 }
 .dark #app {
   background-image: linear-gradient(to bottom right, #2b5876, #4e4376);
