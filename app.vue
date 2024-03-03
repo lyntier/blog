@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { BlogItem } from './types/blog-item'
 import options from '~/assets/json/particles.json'
 
 function hideBackgroundColor() {
@@ -11,6 +12,15 @@ const route = useRoute()
 function isMainPage(): boolean {
   return route.fullPath === '/'
 }
+
+const posts = useState('posts')
+
+await callOnce('posts', async () => {
+  console.log('called')
+  const data = (await useFetch<BlogItem[]>('/api/_content/query')).data.value
+  const sortedPosts = data?.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+  posts.value = sortedPosts
+})
 </script>
 
 <template>
