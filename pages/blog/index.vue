@@ -19,7 +19,6 @@ const list = useFetch<BlogItem[]>('/api/_content/query').data
           </div>
         </NuxtLink>
       </div>
-      {{ list }}
     </div>
   </div>
 </template>
