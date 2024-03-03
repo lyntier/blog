@@ -15,7 +15,7 @@
     <AuvGrowingButton
       text="Github"
       icon="i-fa-brands:github"
-      href="https://github.com/kamadoori"
+      href="https://github.com/lyntier"
       class="self-center"
     />
   </aside>
