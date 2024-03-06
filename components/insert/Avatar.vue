@@ -1,6 +1,15 @@
+<script setup lang="ts">
+withDefaults(defineProps<{
+  paperclip?: boolean
+}>(), {
+  paperclip: true,
+})
+</script>
+
 <template>
   <div class="max-h-[236px] max-w-[236px] min-h-[236px] min-w-[236px]">
     <NuxtImg
+      v-if="paperclip"
       src="/img/paperclip.png"
       class="absolute z-1 translate-x-24 translate-y-[-12px]"
       densities="x1"
