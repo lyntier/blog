@@ -16,7 +16,6 @@ function isMainPage(): boolean {
 const posts = useState('posts')
 
 await callOnce('posts', async () => {
-  console.log('called')
   const data = (await useFetch<BlogItem[]>('/api/_content/query')).data.value
   const sortedPosts = data?.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
   posts.value = sortedPosts
@@ -27,7 +26,7 @@ await callOnce('posts', async () => {
   <div id="app" class="font-500 font-sans duration-300">
     <div class="h-full flex flex-col dark:text-frappe-text light:text-latte-text">
       <header class="absolute my-5 w-full flex flex-row justify-center xl:hidden">
-        <AuvHeaderDisplayText shadow class="text-4xl" />
+        <AuvHeaderDisplayText v-if="!isMainPage()" shadow class="text-4xl" />
       </header>
       <AuvSidebar v-if="!isMainPage()" class="fixed bottom-10 top-5 m-5 max-w-60 translate-x--85 rounded shadow-md duration-300 xl:translate-x-0 dark:bg-latte-base light:bg-frappe-base dark:text-latte-text light:text-frappe-text" />
       <div class="mx-auto mb-15 mt-10 flex-grow lg:mx-auto xl:mt-10 lg:w-auto">
